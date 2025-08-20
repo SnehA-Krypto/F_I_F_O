@@ -1,10 +1,10 @@
 module f_i_f_o #(
     parameter integer X = 16,                // user-configurable
-    parameter integer DATA_WIDTH = X,       // data width = X
-    parameter integer DEPTH = 2*X           // depth = 2*X
+    parameter integer DATA_WIDTH = X,      
+    parameter integer DEPTH = 2*X           
 )(
     input  wire clk,
-    input  wire rst,                        // reset (active high)
+    input  wire rst,                       
     input  wire wr_en,
     input  wire rd_en,
     input  wire [DATA_WIDTH-1:0] din,
@@ -13,7 +13,7 @@ module f_i_f_o #(
     output wire empty
 );
 
-    reg [DATA_WIDTH-1:0] mem [0:DEPTH-1];   // memory array
+    reg [DATA_WIDTH-1:0] mem [0:DEPTH-1];   
     reg [$clog2(DEPTH):0] wr_ptr, rd_ptr, count;
 
     assign full  = (count == DEPTH);
